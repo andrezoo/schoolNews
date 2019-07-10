@@ -1,0 +1,18 @@
+section[content]>.head-main>.inner>[menu]>.elem {
+  padding: 2.5% 4%;
+}
+section[content]>[block]>.inner>a.button>.white {
+  width: 90%; margin: 0.5% 5%; cursor: pointer
+}
+section[content]>[block]>.inner {
+  height: 25%
+}
+section[content]>[block] {
+  margin: 0
+}
+section[content]>.foot-main {
+  margin-top: 0vw;
+}
+section[content]>article[littleblock] {
+  padding-bottom: 5vh
+}

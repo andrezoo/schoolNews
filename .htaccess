@@ -1,0 +1,31 @@
+AddDefaultCharset UTF-8
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+<Files init.php>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files check.php>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+Options -Indexes
+
+DirectoryIndex auth.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+    RewriteRule ^(path/to/your/images.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1]
+</IfModule>
+<IfModule mod_headers.c>
+    Header append Vary Accept env=REDIRECT_accept
+</IfModule>
+AddType image/webp .webp

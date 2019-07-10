@@ -1,0 +1,533 @@
+body {width: 100vw; height: 100%; overflow: visible; margin: 0; padding: 0; overflow-x: hidden; background: rgba(225,225,225,.1); z-index: 0}
+
+[unselectable] {-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+
+::-webkit-scrollbar {width: 2.5px}
+::-webkit-scrollbar-track {background: #f1f1f1}
+::-webkit-scrollbar-thumb {background: #888}
+::-webkit-scrollbar-thumb:hover {background: #555}
+
+div.whitespace {position: fixed; z-index: 100; background: rgba(33,33,33,.5); display: none; width: 100vw; height: 100vh; overflow: hidden; box-sizing: content-box}
+div.whitespace>.whitespace_workspace {width: 50%; display: block; margin: 0 25%; height: 75%}
+div.whitespace>.whitespace_workspace>section[block] {width: 100%; margin-top: 15.5vh; display: none;
+  padding: 0.5vh 0; box-sizing: border-box; border-radius: 15px; background: white; -webkit-font-smoothing: antialiased
+  text-rendering: optimizelegibility}
+div.whitespace>.whitespace_workspace>section[block]>h3 {text-align: center; font-family: 'Montserrat', sans-serif; margin-bottom: 0.4vh}
+div.whitespace>.whitespace_workspace>section[block]>span {font-family: 'Noto Sans', sans-serif; text-align: center; display: block}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag {
+  width: 100%; box-sizing: border-box; margin: 1.5vh 0 1vh 0; outline: none; padding: 1vh 0 1vh 0; background: rgba(245,245,245,.85)
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>input[eleminput] {
+  padding: 0.5vh 0.25vw; box-sizing: border-box; width: 80%; display: block;
+  margin: 0 10%; outline: none; font-family: 'Noto Sans', sans-serif; font-weight: 500;
+  border-radius: 0 10px 10px 0; border: solid 2px rgba(33,33,33,.85);
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>input[type="submit"] {
+  transition: ease 250ms all; transition-delay: 0.1s
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>input[type="submit"]:hover {
+  background: rgba(0,255,0,.5); border-color: rgba(0,200,0,.5); color: white; cursor: pointer
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>input[eleminput]::selection {background: rgba(255,255,0,.5)}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>input[eleminput]::placeholder {font-weight: 500}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>section[elemalert] {
+  padding: 0.5vh 0.25vw; box-sizing: border-box; width: 80%; display: block;
+  margin: 1% 10% 0 10%; outline: none; font-family: 'Noto Sans', sans-serif; font-weight: 500;
+  font-size: calc(100vh - 98.5vh); color: rgba(33,33,33,.75);
+  border-radius: 0 10px 10px 0; border: solid 2px rgba(240,240,0,.85); background: rgba(255,255,0,.5)
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>section[elemoutput] {
+  padding: 1vh 0vw; padding-bottom: 0.5vh; box-sizing: border-box; width: 80%; display: block;
+  margin: 0 10%; outline: none; font-family: 'Noto Sans', sans-serif; font-weight: 500;
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>section[elemoutput]>button {
+  margin-right: 0.5vw; margin-bottom: 0.25vh; border: none;
+  padding: 1vh 0.75vw; outline: none; font-family: 'Noto Sans', sans-serif; font-weight: 500;
+  transition: ease 450ms background, font-weight; border-radius: 15px; word-wrap: break-word;
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>section[elemoutput]>button>#text {
+  word-wrap: break-word;
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>section[elemoutput]>button:hover {
+  background: rgba(255,0,0,.3); cursor: pointer;
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>section[elemoutput]>button>i {
+  padding: 0.25vh 0.1vw; display: inline-block; border: 2px solid rgba(200,200,200,.75);
+  border-radius: 15px; margin-right: 0.25vw; color: rgba(180,180,180,.85)
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>section[elemoutput]>button[bad] {
+  background: rgba(255,255,0,.5);
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_addtag>section[elemoutput]>button:hover>i {
+  border-color: rgba(255,0,0,.5); color: rgba(255,0,0,.5); transition: 250ms all
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_preview {
+  width: 100%; margin: 0.5vh 0; display: block
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_preview>.standart_preview {
+  display: block; margin: 1vh 25%; width: calc(100% - 50%); padding: 1vh 1vw; box-sizing: border-box; background: black
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_preview>.standart_preview>.standart_wrapper {
+  display: inline-block; width: 100%; height: 35vh; margin: 1% 0%;
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_preview>.standart_preview>.standart_wrapper>h4 {
+  display: block; word-wrap: break-word; margin: 0; font-family: 'Noto Sans', sans-serif; font-size: calc(100vw - 98.95vw);
+}
+div.whitespace>.whitespace_workspace>section[block]>.whitespace_preview>.standart_preview>.standart_wrapper>span {
+  font-family: 'Noto Sans', sans-serif; word-wrap: break-word;
+}
+
+section[wrapper] {width: 100%; height: 100%; z-index: 33; display: none; position: fixed}
+div.errormessage {position: absolute; display: none; z-index: 98; opacity: 1; padding: 0.5vh 1vw; border-radius: 30px; text-align: center;
+  background: rgba(255,255,0,.75); font-family: 'Noto Sans', sans-serif; word-wrap: break-word}
+
+section[content] {width: 100vw; z-index: 1; margin: 0; position: relative}
+
+div.alert {display: inline-block; transition: 250ms all; border-radius: 0 30px 0 0; position: fixed; margin: 0; z-index: 99; margin-top: 95vh; padding: 0;
+   background: rgba(255,220,50,.75); color: white; font-family: 'Noto Sans', sans-serif; text-align: center; padding: 1.5vh 1vw; margin-left: -100%}
+div.view-edit {position: fixed; width: calc(100vw - 96vw); margin: calc(100vh - 60vh) 0; display: flex; flex-direction: column; background: rgba(107,114,193,.65); z-index: 99}
+div.view-edit>a {width: 100%; text-align: center; padding: calc(100vw - 98.5vw) 0; color: white; transition: 450ms background}
+div.view-edit>a[sel] {background: rgba(83,91,193,.75)}
+div.view-edit>a:hover {background: rgba(83,91,193,.85)}
+
+section[content]>.head-main {width: 100%; height: 5vh; position: fixed; transition: 750ms margin}
+section[content]>.antiscroll>.inner>[center]>img {opacity: 1; margin-top: -65% !important; transition: 250ms margin, opacity}
+section[content]>.scroll>.inner>[center]>img {opacity: 0.65; margin-top: -85% !important; animation: none !important; webkit-animation: none !important; transition: 250ms margin, opacity}
+section[content]>.head-main>.inner {width: 99%; height: 100%; margin: 0 0.5%}
+
+section[content]>.head-main>.inner>[left] {width: 30%; height: 100%; float: left}
+section[content]>.head-main>.inner>[center] {margin: 0 5%; width: 30%; height: 100%; display: inline-block}
+section[content]>.head-main>.inner>[right] {width: 30%; height: 100%; float: right}
+
+section[content]>.head-main>.inner>[menu]>.elem {vertical-align: middle; font-family: 'Noto Sans', sans-serif; color: rgba(140,140,140,1);
+  transition: 250ms background; padding: 1.5% 4%; text-decoration: none; cursor: pointer; line-height: calc(100vw - 97.5vw)}
+section[content]>.head-main>.inner>[menu]>.elem:hover {background: rgba(200,200,200,.25)}
+
+section[content]>.head-main>.inner>[center]>img {margin-top: -65%; position: relative; z-index: 1; pointer-events: none;
+  animation: 5s linear 0s normal none infinite running rot; -webkit-animation: 5s linear 0s normal none infinite running rot}
+section[content]>.head-main>.inner>[center]>h2 {display: block; width: 30%; height: 100%; text-shadow: 0 0 10px rgba(132,96,168,.95); color: white;
+  font-family: 'Montserrat', sans-serif; font-size: calc(100vw - 98.75vw); text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; font-weight: 400; position: absolute; z-index: 99; text-align: center}
+
+  @keyframes rot {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(360deg)}
+  }
+  @-webkit-keyframes rot {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(360deg)}
+  }
+
+section[content]>.head-main>.inner>[float-right] {text-align: right}
+
+section[content]>[block] {display: inline-block; width: 100%; margin: 5vh 0; margin-bottom: 0; height: 75%}
+section[content]>[block]>.inner {width: 75%; height: 35%; margin: 0 12.5%; margin-top: calc(100vh - 65vh); text-align: center}
+section[content]>[block]>.inner>[big] {font-size: 400%; font-family: 'Montserrat', sans-serif; margin-bottom: 0}
+section[content]>[block]>.inner>[desc] {font-family: 'Noto Sans', sans-serif}
+section[content]>[block]>.inner>a.button {margin: 0 40%; padding: 0.5% 0.75%; margin-top: 10%; display: block; background-size: cover; background-position: left bottom; background: url(img/block.png);
+  /**background: -moz-linear-gradient(-45deg, rgba(125,30,115,1) 0%, rgba(129,47,120,1) 19%, rgba(126,72,151,1) 35%, rgba(107,92,180,1) 54%, rgba(144,124,177,1) 74%, rgba(198,184,233,1) 100%);
+  background: -webkit-linear-gradient(-45deg, rgba(125,30,115,1) 0%,rgba(129,47,120,1) 19%,rgba(126,72,151,1) 35%,rgba(107,92,180,1) 54%,rgba(144,124,177,1) 74%,rgba(198,184,233,1) 100%);
+  background: linear-gradient(135deg, rgba(125,30,115,1) 0%,rgba(129,47,120,1) 19%,rgba(126,72,151,1) 35%,rgba(107,92,180,1) 54%,rgba(144,124,177,1) 74%,rgba(198,184,233,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d1e73', endColorstr='#c6b8e9',GradientType=1); **/ color: white; text-decoration: none; font-family: 'Noto Sans', sans-serif;
+  transition: 750ms background; border-radius: 30px 0 30px 0; font-weight: 500; transition: 750ms background, color}
+
+section[content]>[block]>.inner>a.button:hover {background-position: right bottom; cursor: pointer; background: url(img/block.png)}
+section[content]>[block]>.inner>a.button>.white {display: block; width: 98.5%; margin: 0.5% 0.75%; border-radius: 20px 0 20px 0; background: white; padding: 1.5vh 0; color: rgba(33,33,33,.85)}
+section[content]>[block]>.inner>a.button:hover>.white {background: white; color: rgba(33,33,33,.85)}
+
+section[content]>.foot-main {width: 100%; margin-top: 5vw; text-align: center; height: 20vh; background: rgba(240,240,240,.75)}
+section[content]>.foot-main[special] {height: auto; background: none}
+section[content]>.foot-main>a[big] {display: inline-block; margin-top: 7.5vh; font-family: 'Montserrat', sans-serif;
+  font-weight: 900; font-size: calc(100vh - 95vh); color: rgba(33,33,33,.85)}
+section[content]>.foot-main>span {font-family: 'Noto Sans', sans-serif; color: rgba(33,33,33,.75); vertical-align: middle; line-height: 400%}
+
+section[content]>article[littleblock] {width: 100%; margin: 0; padding-bottom: 10vh}
+section[content]>article[littleblock]>.inner[navbar] {display: flex; flex-direction: row; width: 100%}
+section[content]>article[littleblock]>.inner[navbar]>[block] {width: 40%; padding: 1vh 2vw; box-sizing: border-box; border-radius: 30px; background: rgba(240,240,240,.75); margin: 0 2.25%}
+section[content]>article[littleblock]>.inner[navbar]>[block]>h3 {text-align: center; font-size: calc(100vh - 97.5vh); margin-bottom: 1.5vh; font-family: 'Montserrat', sans-serif; color: rgba(33,33,33,.85)}
+section[content]>article[littleblock]>.inner[navbar]>[block]>span {display: inline-block; font-family: 'Noto Sans', sans-serif; margin-bottom: 2.5vh}
+section[content]>article[littleblock]>.inner[navbar]>[block]>p {margin: 0 10%; margin-bottom: 1vh; text-align: center; padding: 1.5vh 0; font-size: calc(100vh - 98.25vh); font-family: 'Noto Sans', sans-serif; background: rgba(255,255,255,.85);
+  text-decoration: none; border-radius: 30px 0; cursor: pointer}
+section[content]>article[littleblock]>.inner[navbar]>[block]>p>a {text-decoration: none; color: rgba(99,99,99,.95)}
+section[content]>article[littleblock]>.inner[navbar]>[block]>p::selection {background: rgba(139,117,181,.75); color: white}
+
+section[content]>article[loader] {width: 100%; height: auto; margin: 0; padding: 0}
+section[content]>article[loader]>div.row {width: 100%; /** Стандартная высота --> height: calc(100vh - 55vh); **/ display: flex; flex-direction: row; background: rgba(240,240,240,.75); margin-bottom: 2.5vh}
+section[content]>article[loader]>div.little-row {display: block !important; height: auto; flex-direction: none !important}
+section[content]>article[loader]>div.little-row>[inner] {width: 80%; margin: 0 10%; padding-bottom: 2.5vh; text-align: center}
+section[content]>article[loader]>div.little-row>[inner]>h3 {font-family: 'Montserrat', sans-serif; color: rgba(33,33,33,.85); font-size: calc(100vh - 97.5vh); margin: 0; padding: 2.5vh 0 0 0;}
+section[content]>article[loader]>div.little-row>[inner]>span {font-family: 'Noto Sans', sans-serif; font-size: calc(100vh - 98.5vh)}
+section[content]>article[loader]>div.little-row>[inner]>a>button {display: block; width: 20%; padding: 1.5vh 2%; margin: 1.5vh 40%; margin-top: 2vh; margin-bottom: 0;
+  color: rgba(175,108,163,.95); font-weight: 600; font-family: 'Montserrat', sans-serif; outline: none; background: none; border: 2px solid rgba(175,108,163,.75)}
+section[content]>article[loader]>div.little-row>[inner]>a>button:hover {background: rgba(175,108,163,.75); color: white; cursor: pointer; transition: 450ms all}
+section[content]>article[loader]>div.little-row>[inner]>a {text-decoration: none; color: rgba(175,108,163,.95)}
+
+section[wrapper]>[leftside] {width: 25vw; height: 100vh; float: left; display: inline-block !important; z-index: 33}
+section[wrapper]>[leftside]>.menu {height: 25%; margin-top: 75%; width: 100%; background: black}
+
+section[content]>article[question] {width: 100%; height: 50vh; display: inline-block; margin: 24vh 0 5vh 0}
+section[content]>article[question]>h3 {text-align: center; font-family: 'Montserrat', sans-serif}
+section[content]>article[question]>.inner {width: 60%; height: 100%; margin: 0 20%}
+section[content]>article[question]>.inner>.block {width: 45%; height: 100%; display: inline-block; margin: 0 1.25%; border: solid 2px rgba(33,33,33,.75)}
+section[content]>article[question]>.inner>.block[left] {float: left}
+section[content]>article[question]>.inner>.block[right] {float: right}
+section[content]>article[question]>.inner>.block:hover {box-shadow: 0 0 5px rgba(177,177,177,.75); cursor: pointer}
+section[content]>article[question]>.inner>.block>h2 {text-align: center; margin-top: calc(100vh - 80vh); margin-bottom: 0; font-size: 200%; font-family: 'Montserrat', sans-serif; color: rgba(245,245,245,.99)}
+section[content]>article[question]>.inner>.block>span {display: inline-block; width: 70%; color: white; margin: 0 15%; text-align: center; font-family: 'Noto Sans', sans-serif}
+
+section[content]>article[editor] {width: 100%; display: inline-block; padding-top: 1.5vh; margin: 20vh 0 5vh 0; background: rgba(245,245,245,.75)}
+section[content]>article[editor]>.navbar {width: 30%; float: left; display: inline-block}
+section[content]>article[editor]>.main>.inner {float: left; transition: 250ms background; margin: 5vh calc(100vw - 90vw); cursor: pointer; background: rgba(132,122,193,.45); border: 5px dashed rgba(105,99,169,.75)}
+section[content]>article[editor]>.navbar>[tip] {display: inline-block; margin: 0% 5%; width: 90%; overflow: hidden}
+section[content]>article[editor]>.navbar>[tip]>h4 {font-family: 'Montserrat', sans-serif; margin-bottom: 0; font-size: calc(100vh - 98vh)}
+section[content]>article[editor]>.navbar>[tip]>span {font-family: 'Noto Sans', sans-serif; font-size: calc(100vh - 98.5vh)}
+
+section[content]>article[editor]>.main {float: left; width: 40%; overflow: hidden}
+section[content]>article[editor]>.main>.inner>div>i {display: inline-block; width: 100%; text-align: center; font-size: calc(100vh - 90vh); color: white}
+section[content]>article[editor]>.main>.inner>div {padding: calc(100vw - 96vw) 1vw; text-align: center; font-family: 'Noto Sans', sans-serif; color: white}
+section[content]>article[editor]>.main>.inner>div>label {font-weight: 800}
+section[content]>article[editor]>.main>.dragover {background-color: rgba(151,147,172,.75) !important; outline-offset: -17px}
+
+section[content]>article[editor]>.alertbar {width: 30%; margin-top: 5vh; float: right; font-family: 'Noto Sans', sans-serif}
+section[content]>article[editor]>.alertbar>.elem {margin: 0 10% 1.5% 0; width: 90%; transition: 250ms all; text-align: center; display: inline-block; padding: 1.5% 0; border-radius: 30px}
+section[content]>article[editor]>.alertbar>.good {background: rgba(0,255,0,.55)}
+section[content]>article[editor]>.alertbar>.bad {background: rgba(255,0,0,.55); color: white}
+section[content]>article[editor]>.alertbar>.middle {background: rgba(255,255,0,.55)}
+section[content]>article[editor]>.alertbar>.button {margin: 0 10% 1.5% 0; width: 90%; text-align: center; color: rgba(33,33,33,.85); font-weight: 700; cursor: pointer; border: 2px solid rgba(33,33,33,.75); display: inline-block; padding: 1.5% 0; border-radius: 30px}
+section[content]>article[editor]>.alertbar>.elem>a {font-size: calc(100vh - 98.5vh) !important; width: 100%; display: inline-block; float: left; color: rgba(33,33,33,.85); font-family: 'Noto Sans', sans-serif; padding-left: 1%}
+section[content]>article[editor]>.alertbar>.button:hover {background: rgba(174,169,198,.95); color: white; transition: 450ms all}
+
+section[content]>article[editor]>.main>.asker {transition: 250ms background; margin: 0vh 1vh}
+section[content]>article[editor]>.main>.asker>label {font-size: 90%; display: block; font-family: 'Noto Sans', sans-serif; margin-top: 3.5%; margin-bottom: 1.5%}
+section[content]>article[editor]>.main>.asker>input[type="text"] {width: 80%; display: block; transition: 450ms background; outline: none; border: 1.5px solid rgba(33,33,33,.85); padding: 1% 1.5%; font-family: 'Noto Sans', sans-serif}
+section[content]>article[editor]>.main>.asker>.btn {width: 80%; display: block; padding: 1% 1.5%; outline: none; background: rgba(132,122,193,.45); box-sizing: border-box;
+  border: 2.5px dashed rgba(105,99,169,.75); font-family: 'Noto Sans', sans-serif; color: white; margin-top: 2.5%; transition: 450ms all; font-size: calc(100vh - 98.5vh); cursor: pointer}
+section[content]>article[editor]>.main>.asker>.btn:hover {background: rgba(132,122,193,.75)}
+
+section[content]>article[editor]>.main>.asker>.tagsmanager {width: 80%; margin: 1.5vh 0; transition: 150ms padding; padding: 0.5vh 1vh; box-sizing: border-box}
+section[content]>article[editor]>.main>.asker>.tagsmanager>[tag] {display: inline-block; font-family: 'Noto Sans', sans-serif; font-size: calc(100vh - 98.5vh); padding: 0.5vh 1vw; color: rgba(33,33.33,.75); margin: 0.25vh 0.4vh; background: rgba(33,33,33,.05)}
+
+section[content]>article[editor]>.main>.asker>.alert {width: 80%; margin: 1.5vh 0; transition: 150ms padding; position: relative; border-radius: 0; color: rgba(33,33,33,.85); border: solid 1.5px rgba(255,200,0,.5); background: rgba(255,255,0,.45); padding: 0.5vh 1vh; box-sizing: border-box}
+
+section[content]>article[editor]>.viewbar {width: 30%; margin-bottom: 1.5%; margin-top: 1vh; overflow: hidden; float: left; font-family: 'Noto Sans', sans-serif}
+section[content]>article[editor]>.viewbar>.inner {width: 30%; height: 45vh; background-size: cover; background-repeat: no-repeat;
+    background-position: 50% 50%; position: absolute; display: inline-block; overflow: hidden}
+section[content]>article[editor]>.viewbar>h4 {font-family: 'Montserrat', sans-serif; margin-bottom: 1%; margin-top: 0; font-size: calc(100vh - 98vh); display: block; text-align: center}
+section[content]>article[editor]>.viewbar>.wrapper {position: relative; z-index: 66; display: inline-block; width: 100%; height: 45vh}
+section[content]>article[editor]>.viewbar>.wrapper>h3 {display: inline-block; overflow: hidden; margin-top: calc(45vh - 4.5vh); padding: 0.5vh 1.5vw; font-size: calc(100vh - 98vh); color: white;
+  background: rgba(33,33,33,.15)}
+section[content]>article[editor]>.viewbar>.wrapper>h4 {display: block; overflow: hidden; margin-bottom: 0; margin-top: calc(45vh - 42.5vh); padding: 0.5vh 1.5vw; font-weight: bolder; font-size: calc(100vh - 98vh); color: rgba(33,33,33,.85)}
+section[content]>article[editor]>.viewbar>.wrapper>span {display: inline-block; width: 80%; word-wrap: break-word; overflow: hidden; margin-top: 0.5vh; padding: 0 1.5vw; font-family: 'Noto Sans', sans-serif; text-align: left}
+
+section[content]>article[editor]>.main>.asker>[inner] {margin-top: calc(100vh - 95.5vh)}
+section[content]>article[editor]>.main>.asker>[inner]>.color-picker {width: 25%; display: inline-block; justify-content: center}
+section[content]>article[editor]>.main>.asker>[inner]>.color-picker>h3 {font-family: 'Montserrat', sans-serif; text-align: center; margin-top: 0; margin-bottom: 1vh; font-size: calc(100vh - 98vh)}
+section[content]>article[editor]>.main>.asker>[inner]>.color-picker>button {background: none; cursor: pointer; transition: 450ms background; margin: 0.5vh 30%; margin-top: 1vh; border: 2px solid rgba(33,33,33,.85); display: block; outline: none}
+section[content]>article[editor]>.main>.asker>[inner]>.color-picker>button>div {display: block; opacity: 0.9; margin: 0.5vh 0.1vh; border-radius: 1vh; padding: 2vh}
+section[content]>article[editor]>.main>.asker>[inner]>.color-picker>button:hover {background: rgba(33,33,33,.1)}
+
+section[content]>article[editor]>.main>.asker>[inner]>.blockview-editor {width: 75%; float: right; display: inline-block}
+section[content]>article[editor]>.main>.asker>[inner]>.blockview-editor>h3 {font-family: 'Montserrat', sans-serif; text-align: center; width: 80%; margin-top: 0; margin-bottom: 1vh; font-size: calc(100vh - 98vh)}
+section[content]>article[editor]>.main>.asker>[inner]>.blockview-editor>label {font-family: 'Noto Sans', sans-serif; display: block; margin-top: 1.5vh}
+section[content]>article[editor]>.main>.asker>[inner]>.blockview-editor>input {width: 80%; font-family: 'Noto Sans', sans-serif; margin-top: 0.5vh; display: block; font-size: calc(100vh - 98.5vh); transition: 450ms background;
+  outline: none; border: 1px solid rgba(33,33,33,.65); padding: 1% 1.5%}
+section[content]>article[editor]>.main>.asker>[inner]>.blockview-editor>textarea {width: 80%; font-family: 'Noto Sans', sans-serif; margin-top: 0.5vh; display: block;
+font-size: calc(100vh - 98.5vh); transition: 450ms; outline: none; border: 1px solid rgba(33,33,33,.65); padding: 1% 1.5%; height: 20%; resize: vertical}
+
+section[content]>article[editor]>.main>.asker>[inner]>.blockview-editor>button {width: 80%; font-weight: 800; display: block; padding: 1% 1.5%; outline: none; background: rgba(132,122,193,.45); box-sizing: border-box;
+  border: 2.5px dashed rgba(105,99,169,.75); font-family: 'Noto Sans', sans-serif; color: white; margin-top: 2.5%; transition: 450ms all; font-size: calc(100vh - 98.5vh); cursor: pointer}
+section[content]>article[editor]>.main>.asker>[inner]>.blockview-editor>button:hover {background: rgba(132,122,193,.75)}
+section[content]>article[editor]>.main>.asker>[inner]>.blockview-editor>.alert {width: 80%; margin: 1.5vh 0; transition: 150ms padding; position: relative; border-radius: 0;
+  color: rgba(33,33,33,.85); border: solid 1.5px rgba(255,200,0,.5); font-size: calc(100vh - 98.5vh); background: rgba(255,255,0,.45); padding: 0.5vh 1vh; box-sizing: border-box}
+section[content]>article[editor]>.main>.asker>[inner]>.fix-height {width: 100%; display: block; clear: both; height: 1vh}
+section[content]>article[editor]>.main>.asker>[inner]>.blockview-editor>.badresult {background: rgba(255,0,0,.5); color: rgba(245,245,245,.95)}
+section[content]>article[editor]>.fix {width: 100%; display: block; clear: both; height: 1vh}
+
+section[content]>article.main_environment {width: 100%; height: 100%; display: block; background: rgba(250,250,250,.85); color: rgba(33,33,33,.85); text-decoration: none}
+section[content]>article.main_environment>.main_infobar {width: 25%; height: 100vh; display: inline-block; float: right}
+section[content]>article.main_environment>.main_infobar>.main_infobar_workspace[type="opened"] {
+  border-radius: 30px 0 0 30px; transition: 450ms margin; width: 75%; overflow: hidden; background: rgba(255,255,0,.5); float: right; height: 50vh; margin: 25vh 0}
+section[content]>article.main_environment>.main_infobar>.main_infobar_workspace[type="closed"] {
+  width: 75%; margin: 25vh 0; transition: 450ms margin; margin-right: -65%; float: right; overflow: hidden; height: 50vh}
+section[content]>article.main_environment>.main_infobar>.main_infobar_workspace>.main_infobar_head {
+  height: 100%; float: left; display: inline-block; background: rgba(235,235,0,.65); overflow: hidden; border-radius: 30px 0 0 30px}
+section[content]>article.main_environment>.main_infobar>.main_infobar_workspace>.main_infobar_head>.bracket {
+  height: 5vh; margin: 22.5vh calc(100vw - 99.5vw); clear: both; background: url(img/bracket.png); display: block; pointer-events: none;
+}
+section[content]>article.main_environment>.main_infobar>.main_infobar_workspace[type="opened"]>.main_infobar_posts {
+  height: 100%; width: calc(100vw - 84.5vw); overflow-y: hidden; overflow-x: auto; flex-direction: column; display: inline-flex; float: right
+}
+section[content]>article.main_environment>.main_infobar>.main_infobar_workspace[type="opened"]>.main_infobar_posts>.standart_post {
+ display: inline-block; width: 100%; margin: 1vh 0; padding: 0.5vh 0.75vw; box-sizing: border-box; border-bottom: 2px solid black; transition: 450ms background
+}
+section[content]>article.main_environment>.main_infobar>.main_infobar_workspace[type="opened"]>.main_infobar_posts>.standart_post[active=true] {
+  background: rgba(255,255,0,.45);
+}
+section[content]>article.main_environment>.main_infobar>.main_infobar_workspace[type="opened"]>.main_infobar_posts>.standart_post:hover {
+  background: rgba(255,255,0,.45); cursor: pointer
+}
+section[content]>article.main_environment>.main_infobar>.main_infobar_workspace[type="opened"]>.main_infobar_posts>.standart_post>h4 {
+  font-family: 'Montserrat', sans-serif; margin-bottom: 0%; margin-top: 0; font-size: calc(100vh - 98.25vh);
+}
+section[content]>article.main_environment>.main_infobar>.main_infobar_workspace[type="opened"]>.main_infobar_posts>.standart_post>p {
+  font-family: 'Noto Sans', sans-serif; margin-top: 0.25vh; margin-bottom: 0
+}
+
+section[content]>article.main_environment>.main_instruments {width: 25%; height: 100vh; display: inline-block; float: left}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace {width: 90%; margin-left: 5%; margin-top: calc(100vh - 50vh);
+  height: calc(100vh - 25vh); display: inline-block; background: rgba(255,255,0,.5); border-radius: 30px 30px 0 0; overflow: hidden; font-family: 'Montserrat', sans-serif}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_head {
+  width: 100%; position: relative; z-index: 66; padding: 0.5vh 1vh; box-sizing: border-box; background: rgba(235,235,0,.65); text-align: center
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space {
+  width: 100%; position: relative; overflow-y: hidden; overflow-x: auto;
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype>header {
+  width: 100%; padding: 0.5vh 1vw; border-bottom: inset 0.2vh rgba(33,33,33,.85); background: rgba(255,255,255,.85); display: block; box-sizing: border-box; border-radius: 30px 30px 0 0 !important; font-size: calc(100vh - 98.5vh);
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype[full="false"]>article {
+  display: none
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype[full="true"]>article {
+  width: 100%; padding: 1vh 1vw; background: white; display: block; box-sizing: border-box; font-size: calc(100vh - 98.5vh);
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype[full="true"]>article>.element {
+  width: 1vw; font-family: 'Noto Sans', sans-serif; box-sizing: padding-box; text-align: center; padding: 0.5vh 0.75vw;
+  border: 2px solid rgba(33,33,33,.75); display: inline-block; font-size: calc(100vh - 97.5vh); background: rgba(250,250,250,.75);
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype[full="true"]>article>.element:hover {
+  background: rgba(230,230,230,.75); cursor: pointer
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype[full="true"]>article>.element[styletype=bold] {
+  font-weight: 900;
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype[full="true"]>article>.element[styletype=ital] {
+  font-style: italic; font-weight: 700;
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype[full="true"]>article>.element[styletype=strike] {
+  font-weight: 700; text-decoration: line-through
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype>header:hover {
+  background: rgba(250,250,250,.95); transition: 450ms background; cursor: pointer;
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype {
+  width: 100%; background: rgba(255,255,255,.1); margin: 0.5vh 0; padding: 0 0.5vh; display: block; box-sizing: border-box;
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace>.main_instruments_space>.selecttype[enabled="false"] {
+  display: none; opacity: 0; visibility: hidden;
+}
+section[content]>article.main_environment>.main_instruments>.main_instruments_workspace[type] {transition: 450ms margin}
+section[content]>article.main_environment>.main_workspace {width: 50%; display: inline-block; height: 100vh}
+section[content]>article.main_environment>.main_workspace>.main_header {width: 75%; margin: 0 15%; display: inline-block; border-radius: 0 0 30px 30px;
+  height: calc(100vh - 90vh)}
+section[content]>article.main_environment>.main_workspace>.main_wrapper {width: 100%; display: inline-block; margin-top: 2.5vh;
+  background: rgba(240,240,240,.75); border-radius: 30px 30px 0 0; overflow: hidden}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_wrapper_head {z-index: 33; width: 100%; padding: 0vh 2vw;
+  box-sizing: border-box; background: rgba(230,230,230,.75); overflow: hidden; display: flex; flex-direction: row}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_wrapper_head>aside {
+  width: 50%; padding: 0.5vh 0; color: rgba(33,33,33,.75);
+  box-sizing: content-box; display: inline-block; font-family: 'Montserrat', sans-serif;
+  vertical-align: middle; font-size: calc(100vh - 98.25vh)}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_wrapper_head>aside[info]>strong {vertical-align: middle !important;
+  line-height: calc(100vh - 98.25vh); display: inline-block; font-size: calc(100vh - 97.5vh); border-radius: 30px 30px 0 0;
+  margin: 0; color: rgba(33,33,33,.85); margin-right: 0.25vw}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_wrapper_head>aside[info]>a {display: inline-block;
+  font-size: calc(100vh - 98.5vh); font-weight: 500; height: 100%; line-height: calc(100vh - 97.5vh)}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_wrapper_head>aside[buttons] {text-align: right}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_wrapper_head>aside[buttons] {padding: 0}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_wrapper_head>aside[buttons]>a {transition: 450ms background; cursor: pointer;
+  display: inline-block; line-height: calc(100vh - 96.5vh); font-size: calc(100vh - 98.5vh); padding: 0 0.5vw}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_wrapper_head>aside[buttons]>a:hover {background: rgba(225,225,225,.85);}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder {width: 100%; display: inline-block; box-sizing: border-box;
+  padding: 1vh 2.5vh; outline: none}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>.main_postbuilder_ghost {
+  -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
+  user-select: none; position: absolute; opacity: .98; float: left; z-index: -33}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>.main_postbuilder_ghost>.post_builder_h1 {
+  font-size: calc(100vh - 97vh); margin: 2vh 0 1vh 0; font-family: 'Noto Sans', sans-serif}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>.main_postbuilder_ghost>.post_builder_tip {color: rgba(100,100,100,.75)}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>.main_postbuilder_ghost>.post_builder_a {
+  display: block; font-size: calc(100vh - 98.25vh); margin: 0 0 0.5vh 0; font-family: 'Noto Sans', sans-serif}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas {
+  position: relative; height: calc(100vh - 15vh); margin-bottom: 1vh; float: left; display: block; width: 100%; z-index: 33; outline: none; overflow-x: hidden; overflow-y: scroll
+}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>.post_builder_h1 {
+  font-size: calc(100vh - 97vh); margin: 2vh 0 1vh 0; font-family: 'Noto Sans', sans-serif}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>.post_builder_a {
+  font-size: calc(100vh - 98.25vh); width: 100%; display: block; word-wrap: break-word; margin: 0 0 2.5vh 0; font-family: 'Noto Sans', sans-serif !important}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>.main_postbuilder_ghost>.post_builder_hidden {
+  opacity: 0;
+}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>.post_builder_p {
+  font-size: calc(100vh - 98.25vh); width: 100%; display: block; word-wrap: break-word; margin: 0 0 2.5vh 0; font-family: 'Noto Sans', sans-serif
+}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>*>pre {
+  word-wrap: break-word; width: 100%; display: block; white-space: pre-wrap !important;
+}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>*>pre>#text {
+  word-wrap: break-word; display: inline-block
+}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_wrapper_fix {display: block; width: 100%; clear:both; height: 1px}
+section[content]>article.main_environment>.main_workspace>.main_wrapper>.main_postbuilder>.main_postbuilder_canvas>div {display: none}
+
+section[content]>article[loader]>div.row>[post] {
+  width: 100vw; /**height: 45vh; **/ box-sizing: border-box; background: black; overflow: hidden;
+}
+section[content]>article[loader]>div.row>div[image] {
+  background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;
+  transition: 450ms ease background; transition-duration: 450ms;
+}
+section[content]>article[loader]>div.row>div[image]:hover {
+  cursor: pointer;
+}
+section[content]>article[loader]>div.row>div[image]>.wrapper {
+  display: inline-block; width: 100%; height: 100%;
+}
+section[content]>article[loader]>div.row>div[image]>.wrapper>h3 {
+  display: inline-block; overflow: hidden; margin-top: calc(45vh - 4.5vh); padding: 0.5vh 1.5vw; font-size: calc(100vw - 99.2vw); color: white;
+  background: rgba(33,33,33,.4); font-family: 'Noto Sans', sans-serif
+}
+section[content]>article[loader]>div.row>a[article] {
+  display: inline-block;
+}
+section[content]>article[loader]>div.row>a[article]>.wrapper {
+  display: inline-block; width: 90%; height: 95%; margin: 2.5% 5%;
+}
+section[content]>article[loader]>div.row>a[article]>.wrapper>h3 {
+  display: block; overflow: hidden; margin-bottom: 0; margin-top: calc(45vh - 42.5vh); padding: 0.5vh 1.5vw; font-weight: bolder;
+  font-size: calc(100vh - 98vh); color: rgba(33,33,33,.85); font-family: 'Noto Sans', sans-serif;
+}
+section[content]>article[loader]>div.row>a[article]>.wrapper>span {
+  display: inline-block; width: 80%; word-wrap: break-word; overflow: hidden; font-size: calc(100vh - 98.25vh);
+  text-decoration: none; color: rgba(33,33,33,.75); margin-top: 0.5vh; padding: 0 1.5vw; font-family: 'Noto Sans', sans-serif; text-align: left;
+}
+section[content]>article[loader]>div.row>a[article]>.wrapper>span>a {
+ display: block; text-align: right; font-family: 'Noto Sans', sans-serif; font-weight: bolder; text-decoration: none; color: rgba(33,33,33,.85); margin-top: 2vh
+}
+
+section[content]>article[reader] {
+  width: 100%; box-sizing: border-box; display: block; overflow: hidden
+}
+section[content]>article[reader]>.main_reader {
+  width: calc(100vw - 50vw); height: 100vh; overflow: hidden; overflow-y: auto; background: rgba(200,200,200,.1); margin: 0 25vw;
+}
+section[content]>article[reader]>.main_reader>.main_reader_head {
+  width: 100%; display: block; padding: 0.5vh 0.75vw; text-align: center; box-sizing: border-box; border-radius: 0 0 30px 30px; z-index: 1
+}
+section[content]>article[reader]>.main_reader>.main_reader_head>h2 {
+  display: inline-block; color: white; font-family: 'Noto Sans', sans-serif; margin: 0.5vh 0.75vw; text-align: center
+}
+section[content]>article[reader]>.main_reader>.main_reader_inner {
+  width: 95%; margin: 0 2.5%; display: block; word-wrap: break-word
+}
+section[content]>article[reader]>.main_reader>.main_reader_inner>.post_builder_h1 {
+  font-size: calc(100vh - 97vh); margin: 2vh 0 1vh 0; font-family: 'Noto Sans', sans-serif; word-wrap: break-word
+}
+section[content]>article[reader]>.main_reader>.main_reader_inner>.post_builder_a {
+  display: block; font-size: calc(100vh - 98.25vh); word-wrap: break-word; margin: 0vh 0 1vh 0; font-family: 'Noto Sans', sans-serif;
+}
+section[content]>article[reader]>.main_reader>.main_reader_inner>.post_builder_p {
+  font-size: calc(100vh - 98.25vh); width: 100%; display: block; word-wrap: break-word; margin: 0 0 2.5vh 0; font-family: 'Noto Sans', sans-serif
+}
+section[content]>article[admin-panel] {
+  width: 100%; padding-top: 15vh; margin-bottom: 5vh; overflow: hidden; display: block;
+}
+section[content]>article[admin-panel]>.inner {
+  width: 80%; margin: 0 10%; display: flex; flex-direction: column;
+}
+section[content]>article[admin-panel]>.inner>[elem] {
+  width: 100%; display: inline-block; margin: 0.5vh 0; padding: 0.1vh 1vw; box-sizing: border-box; background: white; border-radius: 30px;
+  border: 0.3vh solid rgba(33,33,33,.85);
+}
+section[content]>article[auth] {
+  width: 100%; padding-top: 15vh; margin-bottom: 5vh; overflow: hidden; display: block;
+}
+section[content]>article[auth]>h2 {
+  text-align: center; font-family: 'Montserrat', sans-serif; margin-bottom: 0
+}
+section[content]>article[auth]>form.inner_space {
+  width: 40%; margin: 1vh 30vw; background: white; border-radius: 2.5vh;
+  border: solid 0.25vh black; padding: 1.5vh 0; box-sizing: border-box;
+}
+section[content]>article[auth]>form.inner_space>label {
+  font-family: 'Noto Sans', sans-serif; display: block; padding: 0 0.5vw; box-sizing: border-box;
+  background: rgba(230,230,230,.75); font-size: calc(100vh - 98.25vh); margin-top: 1.5vh
+}
+section[content]>article[auth]>form.inner_space>input {
+  font-family: 'Noto Sans', sans-serif; display: block; padding: 0.5vh 0.5vw; box-sizing: border-box;
+  background: rgba(240,240,240,.75); font-size: calc(100vh - 98.5vh); border: none; width: 100%;
+  outline-color: black
+}
+section[content]>article[auth]>form.inner_space>.progress-bar {
+  display: block; width: 100%; height: 2.5vh; background: rgba(230,230,230,.75); margin: 0.5vh 0; overflow: hidden
+}
+section[content]>article[auth]>form.inner_space>.alert-bar {
+  display: block; width: 100%; overflow: hidden; background: rgba(255,255,0,.75); margin: 0.5vh 0; overflow: hidden;
+  font-family: 'Noto Sans', sans-serif; font-size: calc(100vh - 98.5vh); box-sizing: border-box; padding: 0.25vh 0.5vw; word-wrap: break-word;
+}
+section[content]>article[auth]>form.inner_space>.progress-bar>.progress-active {
+  display: block; background: rgba(0,255,0,.5); height: 2.5vh; border-right: solid 0.1vw rgba(50,255,50,.5);
+  text-align: center; color: white; font-weight: bolder; font-family: 'Noto Sans', sans-serif; font-size: calc(100vh - 98.5vh)
+}
+section[content]>article[auth]>form.inner_space>[button] {
+  margin: 1vh 0; transition: 450ms background; transition-duration: 0.5s
+}
+section[content]>article[auth]>form.inner_space>[button]:hover {
+  background: rgba(0,0,0,.1); cursor: pointer
+}
+
+section[content]>article[admin-panel]>section.inner>h2 {
+  font-family: 'Montserrat', sans-serif; text-align: center; margin-bottom: 2.5vh
+}
+section[content]>article[admin-panel]>section.inner>div[info]>h3 {
+  font-family: 'Montserrat', sans-serif; text-align: center; margin-top: 0.5vh; margin-bottom: 0
+}
+section[content]>article[admin-panel]>section.inner>div[info]>span {
+  font-family: 'Noto Sans', sans-serif; margin-top: 0; display: block; word-wrap: break-word; text-align: center; margin-bottom: 1vh;
+  font-size: calc(100vh - 98.35vh);
+}
+section[content]>article[admin-panel]>section.inner>div[info]>.selector {
+  display: flex; justify-content: center; text-align: center; margin: 0 17.5%; background: rgba(255,255,0,.5);
+  padding: 0; border-radius: 30px; margin-bottom: 2vh; overflow: hidden
+}
+section[content]>article[admin-panel]>section.inner>div[info]>.selector>button[side] {
+  width: 50%; background: none; outline: none; border: none; padding: 0.5vh 0; border-right: 2px solid rgba(200,200,0,.75);
+  cursor: pointer; font-weight: bolder; font-family: 'Noto Sans', sans-serif;
+}
+section[content]>article[admin-panel]>section.inner>div[info]>.selector>button[side]:hover {
+  background: rgba(240,240,0,.35); outline: none;
+}
+
+section[content]>article[admin-panel]>section.inner>div[type="post"]>h3 {
+  font-family: 'Noto Sans', sans-serif; margin-bottom: 0
+}
+section[content]>article[admin-panel]>section.inner>div[type="post"]>span {
+  font-family: 'Noto Sans', sans-serif; font-size: calc(100vh - 98.5vh);
+  display: block; margin-bottom: 1vh;
+}
+section[content]>article[admin-panel]>section.inner>div[type="post"]>.post-button {
+  padding: 1vh 0.75vw; border-radius: 30px; border: none; background: white;
+  font-family: 'Montserrat', sans-serif; cursor: pointer; display: inline-block;
+  transition: 450ms background, color; float: right; margin: 0 0.25vw;
+  outline: none 
+}
+section[content]>article[admin-panel]>section.inner>div[type="post"]>.success-button:hover {
+  background: rgba(0,255,0,.6); color: white; transition-duration: 0.5s
+}
+section[content]>article[admin-panel]>section.inner>div[type="post"]>a {
+  color: rgba(33,33,33,.75); transition-duration: 1s; font-weight: bolder;
+  font-family: 'Noto Sans', sans-serif; text-decoration: none; float: left;
+  padding: 1vh 0vw;
+}
+section[content]>article[admin-panel]>section.inner>div[type="post"]>a:hover {
+  color: rgba(33,33,33,.95);
+}
+section[content]>article[admin-panel]>section.inner>div[type="post"]>.remove-button:hover {
+  background: rgba(255,0,0,.5); color: white; transition-duration: 0.5s
+}
+section[content]>article[admin-panel]>section.inner>div[type="post"]>.fail-button:hover {
+  background: rgba(33,33,33,.75); color: white; transition-duration: 0.5s
+}
+section[content]>article[admin-panel]>section.inner>div[type="post"] {
+  padding-bottom: 2vh
+}

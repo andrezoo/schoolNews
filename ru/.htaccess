@@ -1,0 +1,4 @@
+DirectoryIndex index.php
+
+ErrorDocument 500 /schoolNews/ru/crash.php
+ErrorDocument 404 /schoolNews/ru/notFound.php
