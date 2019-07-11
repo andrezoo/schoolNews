@@ -93,9 +93,7 @@
 
                   $.post('admin/select_type.php', {type: type}, function(data) {
 
-                    if(data == 'true') {
-                      console.log('Good');
-                    }
+                    if(data == 'true') console.log('Good');
 
                   });
 

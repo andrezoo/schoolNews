@@ -22,6 +22,28 @@ class admin {
 
   }
 
+  remove(name, type) {
+
+    if(name && type.getAttribute('type') && typeof name == 'string') {
+
+      let url = 'admin/remove-' + type.getAttribute('type') + '.php';
+
+      $.post(url, {object: name}, function(data) {
+
+        if(typeof data == 'string') {
+
+          $(type).remove();
+
+          console.info('Post was deleted (' + data + ')');
+
+        } else console.log('Some problems with server');
+
+      });
+
+    } else return false;
+
+  }
+
 }
 
 let stuff = new admin();
