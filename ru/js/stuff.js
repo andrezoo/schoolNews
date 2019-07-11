@@ -11,10 +11,10 @@ class admin {
         if(typeof data == 'string') {
 
           $(type).remove();
-          
+
           console.info('Post status changed to 5 (' + data + ')');
 
-        }
+        } else console.log('Some problems with upload');
 
       });
 
