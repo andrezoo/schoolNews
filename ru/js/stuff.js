@@ -6,15 +6,29 @@ class admin {
 
       let url = 'admin/success-' + type.getAttribute('type') + '.php';
 
+      $(type).remove();
+
       $.post(url, {object: name}, function(data) {
 
-        if(typeof data == 'string') {
+        if(typeof data == 'string' && data) {
+
+          if(JSON.parse(data)['iserr']) {
+
+            console.log('Some problems with upload (' + JSON.parse(data)['message'] + ')');
+
+          } else {
+
+            console.info('Post status changed to 5 (Uploaded to Vk)');
+
+          }
+
+        } else {
 
           $(type).remove();
 
-          console.info('Post status changed to 5 (' + data + ')');
+          console.info('Post status changed to 5 (Uploaded to Vk)');
 
-        } else console.log('Some problems with upload');
+        }
 
       });
 

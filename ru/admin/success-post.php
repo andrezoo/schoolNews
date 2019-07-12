@@ -22,6 +22,10 @@ class successPost {
 
       if($con->query("UPDATE `posts-preview` SET `status` = '5' WHERE `url` = '$object'")) {
 
+        require 'vk-uploadpost.php';
+
+        $initVK = new vkPostUpload($object, 'post');
+
         return true;
 
       } else return false;
@@ -38,7 +42,7 @@ class successPost {
 
         if($this->success($object, $this->connection())) {
 
-          echo $object;
+          return true;
 
         } else return false;
 
