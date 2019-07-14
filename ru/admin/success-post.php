@@ -54,6 +54,6 @@ class successPost {
 
 }
 
-$successPost = new successPost($_POST['object']);
+$successPost = new successPost($_REQUEST['object']);
 
 ?>
