@@ -1,5 +1,41 @@
 class admin {
 
+  parser(data) {
+
+    //JSON.parse(data)
+
+    for(var i in data) {
+      console.log(data[i]);
+    }
+
+    $('article[admin-panel]>.inner').append(data);
+
+  }
+
+  feed(type) {
+
+    let response = '';
+
+    if(type == 'posts-preview') {
+
+      parent = this;
+
+      $.post('admin/get_feed.php', function(data) {
+
+        response = data;
+
+        parent.parser(JSON.parse(response));
+
+      });
+
+    } else if (type == 'images') {
+
+    }
+
+    return response;
+
+  }
+
   success(name, type) {
 
     if(name && type.getAttribute('type') && typeof name == 'string') {

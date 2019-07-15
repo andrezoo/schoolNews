@@ -109,6 +109,25 @@
 
           <script src="js/stuff.js"></script>
 
+          <script>
+
+            var response = stuff.feed('<?php echo $_SESSION['admin']['selected-type']; ?>');
+
+            if(response) {
+
+              //response = {
+              //  'test': ['gay', 'mer'],
+              //  'second': ['mi', 'ner']
+              //}
+
+              for(i in response) {
+                console.log(response[i]);
+              }
+
+            }
+
+          </script>
+
           <div style="background: rgba(255,255,0,.5)" elem type="post">
 
             <h3>Тестовый заголовок для блока статьи</h3>

@@ -67,7 +67,7 @@
 
             $text = $response['title'].'
                     '.$response['description'].'
-
+                    
                     Источник: '.$this->getShort($post, $siteurl, $token);
 
             $url = sprintf('https://api.vk.com/method/wall.post?');
