@@ -1,3 +1,4 @@
+
 <?php
 
   class getFeed {
@@ -40,7 +41,7 @@
 
           echo json_encode($this->getSelection());
 
-        } else return false;
+        } else echo json_encode(array('error' => true));
 
       } else return false;
 

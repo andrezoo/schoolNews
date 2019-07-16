@@ -68,7 +68,7 @@ div.whitespace>.whitespace_workspace>section[block]>.whitespace_preview>.standar
   display: block; margin: 1vh 25%; width: calc(100% - 50%); padding: 1vh 1vw; box-sizing: border-box; background: black
 }
 div.whitespace>.whitespace_workspace>section[block]>.whitespace_preview>.standart_preview>.standart_wrapper {
-  display: inline-block; width: 100%; height: 35vh; margin: 1% 0%;
+  display: inline-block; width: 100%; margin: 1% 0%;
 }
 div.whitespace>.whitespace_workspace>section[block]>.whitespace_preview>.standart_preview>.standart_wrapper>h4 {
   display: block; word-wrap: break-word; margin: 0; font-family: 'Noto Sans', sans-serif; font-size: calc(100vw - 98.95vw);
@@ -503,13 +503,13 @@ section[content]>article[admin-panel]>section.inner>div[type="post"]>h3 {
 }
 section[content]>article[admin-panel]>section.inner>div[type="post"]>span {
   font-family: 'Noto Sans', sans-serif; font-size: calc(100vh - 98.5vh);
-  display: block; margin-bottom: 1vh;
+  display: block; margin-bottom: 1vh; word-wrap: break-word;
 }
 section[content]>article[admin-panel]>section.inner>div[type="post"]>.post-button {
   padding: 1vh 0.75vw; border-radius: 30px; border: none; background: white;
   font-family: 'Montserrat', sans-serif; cursor: pointer; display: inline-block;
   transition: 450ms background, color; float: right; margin: 0 0.25vw;
-  outline: none 
+  outline: none
 }
 section[content]>article[admin-panel]>section.inner>div[type="post"]>.success-button:hover {
   background: rgba(0,255,0,.6); color: white; transition-duration: 0.5s

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
   class vkPostUpload {
 
@@ -21,9 +21,13 @@
 
     private function getData($post) {
 
-      if($this->connection()) {
+      if($con = $this->connection()) {
 
-        if($result = $this->connection()->query("SELECT * FROM `posts-preview` WHERE `url` = '$post'")) {
+        $con->set_charset("utf8");
+
+        $con->query("SET NAMES utf8");
+
+        if($result = $con->query("SELECT * FROM `posts-preview` WHERE `url` = '$post'")) {
 
           $data = $result->fetch_array();
 
@@ -45,7 +49,7 @@
 
         $shorturl = json_decode($query, true);
 
-        return ($shorturl['response']['short_url']) ? $shorturl['response']['short_url'] : "@$post";
+        return ($shorturl['response']['short_url']) ? $shorturl['response']['short_url'] : "Новостная лента SchoolNews ($post)";
 
       } else return false;
 
@@ -65,33 +69,15 @@
 
             $this->token = $token;
 
-            $text = $response['title'].'
-                    '.$response['description'].'
-                    
-                    Источник: '.$this->getShort($post, $siteurl, $token);
+            $text = urldecode($response['title']."\n".$response['description']).'
 
-            $url = sprintf('https://api.vk.com/method/wall.post?');
+            Источник: '.$this->getShort($post, $siteurl, $token);
 
-            $ch = curl_init();
+            $url = "https://api.vk.com/method/wall.post?";
 
-            curl_setopt_array($ch, array(
-              CURLOPT_POST => TRUE,
-              CURLOPT_RETURNTRANSFER => TRUE,
-              CURLOPT_SSL_VERIFYPEER => FALSE,
-              CURLOPT_SSL_VERIFYHOST => FALSE,
-              CURLOPT_POSTFIELDS => array(
-                "owner_id" => $this->groupId,
-                "from_group" => 1,
-                "message" => $text,
-                "access_token" => $this->token,
-                "v" => "5.101"
-              ),
-              CURLOPT_URL => $url
-            ));
+            $content = file_get_contents($url."owner_id=".$this->groupId."&from_group=1&message=".urlencode($text)."&access_token=".$this->token."&v=5.101");
 
-            $query = curl_exec($ch);
-
-            curl_close($ch);
+            $query = json_decode($content);
 
             echo json_encode(array('iserr' => false, 'message' => 'Good result', 'object' => $query));
 

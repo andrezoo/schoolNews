@@ -82,18 +82,24 @@
             <h3>Информация</h3><span>Для того, чтобы начать работу выберите тип постов</span>
 
             <div class="selector">
-              <button onClick="selectType('posts-preview')" side>Статьи</button><button onClick="selectType('images')" style="border: none" side>Изображения</button>
+              <button onClick="selectType(this, 'posts-preview')" side>Статьи</button><button onClick="selectType(this, 'images')" style="border: none" side>Изображения</button>
             </div>
 
             <script>
 
-              function selectType(type) {
+              function selectType(obj, type) {
 
                 if(type) {
 
                   $.post('admin/select_type.php', {type: type}, function(data) {
 
-                    if(data == 'true') console.log('Good');
+                    if(data && !obj.disabled) {
+
+                      var feed = stuff.feed(type);
+
+                      obj.disabled = true;
+
+                    }
 
                   });
 
@@ -111,42 +117,11 @@
 
           <script>
 
-            var response = stuff.feed('<?php echo $_SESSION['admin']['selected-type']; ?>');
-
-            if(response) {
-
-              //response = {
-              //  'test': ['gay', 'mer'],
-              //  'second': ['mi', 'ner']
-              //}
-
-              for(i in response) {
-                console.log(response[i]);
-              }
-
-            }
+            //var response = stuff.feed('<?php //echo $_SESSION['admin']['selected-type']; ?>');
 
           </script>
 
-          <div style="background: rgba(255,255,0,.5)" elem type="post">
-
-            <h3>Тестовый заголовок для блока статьи</h3>
-
-            <span>
-
-              Повседневная практика показывает, что сложившаяся структура организации в значительной степени обуславливает создание соответствующий условий активизации. Таким образом сложившаяся структура организации представляет собой интересный эксперимент проверки дальнейших направлений развития. Повседневная практика показывает, что рамки и место обучения кадров требуют определения и уточнения существенных финансовых и административных условий. Значимость этих проблем настолько очевидна, что сложившаяся структура организации способствует подготовки и реализации систем массового участия. Равным образом реализация намеченных плановых заданий играет важную роль в формировании модели развития. Значимость этих проблем настолько очевидна, что консультация с широким активом представляет собой интересный эксперимент проверки позиций, занимаемых участниками в отношении поставленных задач. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение направлений прогрессивного развития. Не следует, однако забывать, что консультация с широким активом требуют от нас анализа системы обучения кадров, соответствует насущным потребностям.
-
-            </span>
-
-            <a target="_blank" href="p?a=andrezo-is-here">Просмотреть статью</a>
-
-            <button onClick="stuff.success('andrezo-is-here', this.parentNode)" class="post-button success-button">Опубликовать</button>
-
-            <button onClick="stuff.remove('andrezo-is-here', this.parentNode)" class="post-button remove-button">Удалить</button>
-
-            <button onClick="stuff.fail('andrezo-is-here', this.parentNode)" class="post-button fail-button">Удалить и заблокировать</button>
-
-          </div>
+          <div elem type="image"></div>
 
           <!--<div style="background: rgba(255,255,0,.5)" elem type="post">
 
