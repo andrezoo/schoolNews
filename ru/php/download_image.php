@@ -2,15 +2,9 @@
 
 if(isset($_FILES)){
 
-	function getip() {
+	require '../../service/get_ip.php';
 
-		require '../../service/get_ip.php';
-
-		if ($ipaddress) return md5($ipaddress); else return false;
-
-	}
-
-	$ip = getip();
+	$ip = md5($ipaddress);
 
 	$uploaddir = '../css/img/upload/moderation/'.$ip;
 
@@ -34,8 +28,6 @@ if(isset($_FILES)){
 	}
 
 	$data = $done_files ? array('files' => $done_files ) : array('error' => 'Ошибка загрузки файлов.');
-
-	//die(json_encode($data));
 
 	echo($result[0]);
 

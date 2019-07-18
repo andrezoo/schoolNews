@@ -121,7 +121,13 @@
 
           </script>
 
-          <div elem type="image"></div>
+          <div elem type="image">
+            <section style="background: url('css/img/upload/moderation')" class="wrapper"></section>
+          </div>
+
+          <div elem type="image">
+            <section class="wrapper"></section>
+          </div>
 
           <!--<div style="background: rgba(255,255,0,.5)" elem type="post">
 

@@ -433,11 +433,18 @@ section[content]>article[admin-panel] {
   width: 100%; padding-top: 15vh; margin-bottom: 5vh; overflow: hidden; display: block;
 }
 section[content]>article[admin-panel]>.inner {
-  width: 80%; margin: 0 10%; display: flex; flex-direction: column;
+  width: 80%; margin: 0 10%; /**display: flex; flex-direction: column;**/
 }
 section[content]>article[admin-panel]>.inner>[elem] {
   width: 100%; display: inline-block; margin: 0.5vh 0; padding: 0.1vh 1vw; box-sizing: border-box; background: white; border-radius: 30px;
   border: 0.3vh solid rgba(33,33,33,.85);
+}
+section[content]>article[admin-panel]>.inner>[type="image"] {
+  padding: 0; float: left; display: inline-block; width: 45%;
+  border-radius: 5px; margin: 1vh 2.5%; overflow: hidden;
+}
+section[content]>article[admin-panel]>.inner>[type="image"]>.wrapper {
+  width: 100%; display: inline-block; height: 45vh; background: black;
 }
 section[content]>article[auth] {
   width: 100%; padding-top: 15vh; margin-bottom: 5vh; overflow: hidden; display: block;

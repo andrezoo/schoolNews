@@ -43,6 +43,10 @@ class admin {
 
     } else if (type == 'images') {
 
+      $.post("admin/get_images.php", function(data) {
+
+      });
+      
     }
 
   }

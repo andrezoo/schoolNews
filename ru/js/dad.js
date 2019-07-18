@@ -61,12 +61,17 @@ $(document).ready(function(){
 	}
 
 	function addtobase(name) {
+
 		if(name) {
-			$.post( "php/db_addimage.php", {name: name})
-  			.done(function(data) {
-					showinfoeditor(data);
-  		});
+
+			$.post("php/db_addimage.php", {name: name}, function(data) {
+
+				showinfoeditor(data);
+				
+			});
+
 		}
+
 	}
 	function sendFiles(files) {
 		let maxFileSize = 5242880;

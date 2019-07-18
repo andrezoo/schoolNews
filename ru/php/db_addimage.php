@@ -8,6 +8,7 @@
 
       //<.connection>
       function connection() {
+        
         global $host, $user, $pass, $table;
 
         if($host && $user && $pass && $table) {

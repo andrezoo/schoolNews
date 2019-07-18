@@ -2,7 +2,7 @@
 
   try {
 
-    $ctx = stream_context_create(array('http' => array('timeout' => 2)));
+    $ctx = stream_context_create(array('http' => array('timeout' => 10)));
     $getipfromsite = @file_get_contents('https://api.ipify.org', false, $ctx);
 
     $ipaddress = $getipfromsite;
