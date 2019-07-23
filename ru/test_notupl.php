@@ -121,31 +121,25 @@
 
           </script>
 
-          <div elem type="image">
-            <section style="background: url('css/img/upload/moderation')" class="wrapper"></section>
-          </div>
+          <!--<div elem type="image">
 
-          <div elem type="image">
-            <section class="wrapper"></section>
-          </div>
+            <section style="background-image: url('css/img/upload/moderation/dea2442a4f43ee9fc445e163440ad86a/1c876a508ad37ad4bdcc6678e8c229af.png')" class="wrapper">
 
-          <!--<div style="background: rgba(255,255,0,.5)" elem type="post">
+              <div class="space">
 
-            <h3>Тестовый заголовок для блока статьи</h3>
+                <h3>Тестовый заголовок</h3>
 
-            <span>
+              </div>
 
-              Повседневная практика показывает, что сложившаяся структура организации в значительной степени обуславливает создание соответствующий условий активизации. Таким образом сложившаяся структура организации представляет собой интересный эксперимент проверки дальнейших направлений развития. Повседневная практика показывает, что рамки и место обучения кадров требуют определения и уточнения существенных финансовых и административных условий. Значимость этих проблем настолько очевидна, что сложившаяся структура организации способствует подготовки и реализации систем массового участия. Равным образом реализация намеченных плановых заданий играет важную роль в формировании модели развития. Значимость этих проблем настолько очевидна, что консультация с широким активом представляет собой интересный эксперимент проверки позиций, занимаемых участниками в отношении поставленных задач. Идейные соображения высшего порядка, а также сложившаяся структура организации позволяет оценить значение направлений прогрессивного развития. Не следует, однако забывать, что консультация с широким активом требуют от нас анализа системы обучения кадров, соответствует насущным потребностям.
+            </section>
 
-            </span>
+            <div class="btn-menu">
 
-            <a target="_blank" href="p?a=andrezo-is-here">Просмотреть статью</a>
+              <button onClick="stuff.success('1c876a508ad37ad4bdcc6678e8c229af.png', this.parentNode.parentNode)" class="success-btn" btn>Опубликовать</button>
+              <button onClick="stuff.remove('1c876a508ad37ad4bdcc6678e8c229af.png', this.parentNode.parentNode)" class="remove-btn" btn>Удалить</button>
+              <button onClick="stuff.fail('1c876a508ad37ad4bdcc6678e8c229af.png', this.parentNode.parentNode)" class="fail-btn" btn>Заблокировать</button>
 
-            <button onClick="stuff.success('andrezo-is-here')" class="post-button success-button">Опубликовать</button>
-
-            <button onClick="stuff.remove('andrezo-is-here')" class="post-button remove-button">Удалить</button>
-
-            <button onClick="stuff.fail('andrezo-is-here')" class="post-button fail-button">Удалить и заблокировать</button>
+            <div>
 
           </div>-->
 

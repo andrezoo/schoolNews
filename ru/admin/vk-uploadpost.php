@@ -69,9 +69,7 @@
 
             $this->token = $token;
 
-            $text = urldecode($response['title']."\n".$response['description']).'
-
-            Источник: '.$this->getShort($post, $siteurl, $token);
+            $text = urldecode($response['title']."\n".$response['description'])."\n\nИсточник: ".$this->getShort($post, $siteurl, $token);
 
             $url = "https://api.vk.com/method/wall.post?";
 

@@ -41,12 +41,41 @@ class admin {
 
       });
 
-    } else if (type == 'images') {
+    } else {
 
       $.post("admin/get_images.php", function(data) {
 
+        if(typeof data == 'string' && data && !JSON.parse(data)['error']) {
+
+          response = JSON.parse(data);
+
+          for(var obj in response) {
+
+            $('article[admin-panel]>.inner')
+              .append('<div elem type="image"></div>');
+
+            let elem = $('article[admin-panel]>.inner').children('div[type="image"]').last();
+
+            let background = "background-image: url('css/img/upload/moderation/" + response[obj]['ip'] + "/" + response[obj]['name'] + "')";
+
+            $(elem).append('<section style="' + background + '" class="wrapper"><div class="space"><h3>' + response[obj]['title'] + '</h3></div></section>');
+
+            let success = `<button onclick="stuff.success('${response[obj]['name']}', this.parentNode.parentNode)" class="success-btn" btn>Опубликовать</button>`;
+
+            let remove = `<button onclick="stuff.remove('${response[obj]['name']}', this.parentNode.parentNode)" class="remove-btn" btn>Удалить</button>`;
+
+            let fail = `<button onclick='stuff.fail("${response[obj]['name']}", this.parentNode)' class='fail-btn' btn>Заблокировать</button>`
+
+            $(elem).append('<div class="btn-menu">' + success + remove + fail + '</div>');
+
+          }
+
+        }
+
+        console.log(JSON.parse(data));
+
       });
-      
+
     }
 
   }
