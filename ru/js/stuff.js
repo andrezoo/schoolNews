@@ -27,13 +27,13 @@ class admin {
 
             $(elem).append(`<button onclick="stuff.remove('${response[obj]['url']}', this.parentNode)" class="post-button remove-button">Удалить</button>`);
 
-            $(elem).append(`<button onclick='stuff.fail("${response[obj]['url']}", this.parentNode)' class='post-button fail-button'>Удалить и заблокировать</button>`);
+            $(elem).append(`<button onclick='stuff.fail("${response[obj]['ip']}", this.parentNode)' class='post-button fail-button'>Удалить всё</button>`);
 
           }
 
         } else {
 
-          $('article[admin-panel]>.inner').children('div[warn]').last().remove();
+          $('article[admin-panel]>.inner').children('div[warn]').first().remove();
 
           $('article[admin-panel]>.inner').append('<div info warn elem><h3>Предупреждение</h3><span>Новых записей не обнаружено. Лучше сделайте перерыв</span></div>');
 
@@ -64,15 +64,19 @@ class admin {
 
             let remove = `<button onclick="stuff.remove('${response[obj]['name']}', this.parentNode.parentNode)" class="remove-btn" btn>Удалить</button>`;
 
-            let fail = `<button onclick='stuff.fail("${response[obj]['name']}", this.parentNode)' class='fail-btn' btn>Заблокировать</button>`
+            let fail = `<button onclick='stuff.fail("${response[obj]['ip']}", this.parentNode)' class='fail-btn' btn>Удалить всё</button>`
 
             $(elem).append('<div class="btn-menu">' + success + remove + fail + '</div>');
 
           }
 
-        }
+        } else {
 
-        console.log(JSON.parse(data));
+          $('article[admin-panel]>.inner').children('div[warn]').first().remove();
+
+          $('article[admin-panel]>.inner').append('<div info warn elem><h3>Предупреждение</h3><span>Новых записей не обнаружено. Лучше сделайте перерыв</span></div>');
+
+        }
 
       });
 
@@ -118,7 +122,31 @@ class admin {
 
   }
 
-  remove(name, type) {
+  fail(name, type) {
+
+    if(name && type.getAttribute('type') && typeof name == 'string') {
+
+      let url = 'admin/fail-' + type.getAttribute('type') + '.php';
+
+      $.post(url, {object: name}, function(data) {
+
+        if(typeof data == 'string') {
+
+          $(type).remove();
+
+          console.info('All posts by that user was deleted (' + data + ')');
+
+          window.location.reload();
+
+        } else console.log('Some problems with server');
+
+      });
+
+    }
+
+  }
+
+  remove(ip, type) {
 
     if(name && type.getAttribute('type') && typeof name == 'string') {
 

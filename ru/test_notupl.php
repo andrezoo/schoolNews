@@ -113,35 +113,13 @@
 
           <?php ini_set('session.save_path', __DIR__.'\..\sessions'); session_start(); if($_SESSION['admin']['selected-type']): ?>
 
-          <script src="js/stuff.js"></script>
-
           <script>
 
             //var response = stuff.feed('<?php //echo $_SESSION['admin']['selected-type']; ?>');
 
           </script>
 
-          <!--<div elem type="image">
-
-            <section style="background-image: url('css/img/upload/moderation/dea2442a4f43ee9fc445e163440ad86a/1c876a508ad37ad4bdcc6678e8c229af.png')" class="wrapper">
-
-              <div class="space">
-
-                <h3>Тестовый заголовок</h3>
-
-              </div>
-
-            </section>
-
-            <div class="btn-menu">
-
-              <button onClick="stuff.success('1c876a508ad37ad4bdcc6678e8c229af.png', this.parentNode.parentNode)" class="success-btn" btn>Опубликовать</button>
-              <button onClick="stuff.remove('1c876a508ad37ad4bdcc6678e8c229af.png', this.parentNode.parentNode)" class="remove-btn" btn>Удалить</button>
-              <button onClick="stuff.fail('1c876a508ad37ad4bdcc6678e8c229af.png', this.parentNode.parentNode)" class="fail-btn" btn>Заблокировать</button>
-
-            <div>
-
-          </div>-->
+          <script src="js/stuff.js"></script>
 
           <?php endif ?>
 
